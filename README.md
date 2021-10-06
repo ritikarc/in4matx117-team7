@@ -15,7 +15,8 @@ Steps to get started:
 - open http://localhost:3000/ on a browser to see changes
 - GIT CHEATSHEET: https://about.gitlab.com/images/press/git-cheat-sheet.pdf
 
-# REACT INFO FROM FB DEVS: Getting Started with Create React App
+------------------------------------------------------------------------------------------
+# REACT INFO FROM FB DEVS from this point on
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
