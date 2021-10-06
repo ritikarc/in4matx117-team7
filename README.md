@@ -1,4 +1,21 @@
-# Getting Started with Create React App
+# PHONETAXX ADMIN WEB DASHBOARD
+
+Members: 
+  Ritika Roy Choudhury
+  Daniel Garcia
+  Mikhail Shcherbakov
+  Seong Su Park
+  Justin Zhang
+  
+Steps to get started: 
+- Download VSCode, node js, npm, git
+- Clone the project using git clone https://github.com/ritikarc/in4matx117-team7.git
+- cd into the project on the command line/terminal/vs code
+- npm start
+- open http://localhost:3000/ on a browser to see changes
+- GIT CHEATSHEET: https://about.gitlab.com/images/press/git-cheat-sheet.pdf
+
+# REACT INFO FROM FB DEVS: Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
