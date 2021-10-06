@@ -1,10 +1,10 @@
 # PHONETAXX ADMIN WEB DASHBOARD
 
 Members: 
-  Ritika Roy Choudhury
-  Daniel Garcia
-  Mikhail Shcherbakov
-  Seong Su Park
+  Ritika Roy Choudhury,
+  Daniel Garcia,
+  Mikhail Shcherbakov,
+  Seong Su Park,
   Justin Zhang
   
 Steps to get started: 
