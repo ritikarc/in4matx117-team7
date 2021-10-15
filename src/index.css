@@ -1,0 +1,28 @@
+body, html {
+    min-height: 100%;
+    margin: 0;
+}
+
+/* LoginPage */
+
+#login-page {
+    background-image: url(./loginImage.png);
+    text-align: center;
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#login-form {
+    height: 20%;
+    width: 30%;
+    position: absolute;
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%,50%);
+    position: absolute;
+    background-color: whitesmoke;
+}

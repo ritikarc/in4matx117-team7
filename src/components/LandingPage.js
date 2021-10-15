@@ -1,4 +1,4 @@
-import React from react;
+import React from 'react';
 
 class LandingPage extends React.Component {
 
@@ -12,3 +12,5 @@ class LandingPage extends React.Component {
     }
 
 }
+
+export default LandingPage;

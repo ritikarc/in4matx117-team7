@@ -32,29 +32,30 @@ class LoginPage extends React.Component {
     
     render() {
         return (
-            <form onSubmit={submitHandler}>
-                <div className="form-inner">
-                    <h2>Login</h2>
-                    {/* Error! */}
-                    <div className="form-group">
-                        <label htmlFor="name">Name</label>
-                        <input type="text" name="name" id="name"  onChange={e => this.setName(e)} value={this.name}/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input type="text" name="email" id="email"  onChange={e => this.setEmail(e)} value={this.email}/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input type="text" name="password" id="password"  onChange={e => this.setPassword(e)} value={this.password}/>
-                    </div>
+            <div id="login-page">
+                <div id="login-form">
+                    <form onSubmit={this.submitHandler}>
+                        <div className="form-inner">
+                            <h2>Sign in</h2>
+                            <h3>to the Phonetaxx HR admin center</h3>
+                            {/* Error! */}
+                            <div className="form-group">
+                                <label htmlFor="email"></label>
+                                <input type="text" name="email" id="email"  onChange={e => this.setEmail(e)} value={this.email} placeholder="Enter email address"/>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="password"></label>
+                                <input type="text" name="password" id="password"  onChange={e => this.setPassword(e)} value={this.password} placeholder="Enter password"/>
+                            </div>
+                        </div>
+                        <input type="submit" value="submit" />
+                    </form>
                 </div>
-                
-            </form>
+            </div>
         )
     }
     
 }
 
 
-
+export default LoginPage;

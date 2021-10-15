@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import LoginPage from components;
-import LandingPage from components;
-import { Link } from 'react-router-dom';
+import LoginPage from './components/LoginPage';
+import LandingPage from './components/LandingPage';
+// import { Link } from 'react-router-dom';
 
 function App() {
   // Temporary adminUser credentials until we get Firebase access
