@@ -3,6 +3,12 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router";
 import "./LandingPage.css";
 import { auth, db, logout } from "../firebase";
+
+import Sidebar from './Sidebar';
+import AdminPage from './AdminPage';
+import AnalyticsPage from './AnalyticsPage';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 function Dashboard() {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
@@ -29,6 +35,14 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
+      <Router>
+        <Sidebar />
+        <Switch>
+          <Route path = "/admin-page" exact component={AdminPage} />
+          <Route path = "/analytics-page" component={AnalyticsPage} />
+        </Switch>
+      </Router>
+
       <div className="dashboard__container">
         Logged in as
         <div>{name}</div>
