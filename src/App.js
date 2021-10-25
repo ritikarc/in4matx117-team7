@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LoginPage from './components/LoginPage';
 import LandingPage from './components/LandingPage';
 // import { Link } from 'react-router-dom';
-
+import Sidebar from './components/Sidebar';
+import AdminPage from './components/AdminPage';
+import AnalyticsPage from './components/AnalyticsPage';
 
 function App() {
 
@@ -24,6 +26,15 @@ function App() {
           <Route exact path="/landingpage" component={LandingPage} />
         </Switch>
       </Router>
+
+      <Router>
+        <Sidebar />
+        <Switch>
+          <Route path = "/admin-page" exact component={AdminPage} />
+          <Route path = "/analytics-page" component={AnalyticsPage} />
+        </Switch>
+      </Router>
+    
     </div>
   );
 }
