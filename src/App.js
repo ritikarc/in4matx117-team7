@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
+import employee_data from "./employee_data.json"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+//components
 import LoginPage from './components/LoginPage';
 import LandingPage from './components/LandingPage';
+import Employee from "./components/Employee"
+import EmployeeList from "./components/EmployeeList"
+import AddEmployee from "./components/AddEmployee"
 // import { Link } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import AdminPage from './components/AdminPage';
@@ -12,14 +18,23 @@ function App() {
 
   const [user, setUser] = useState({name: "", email: ""});
   const [error, setError] = useState("");
+  const [ employeeList, setemployeeList ] = useState(employee_data);
 
   const Logout = () => {
     console.log("Logout");
     setUser({ name: "", email: ""});
   }
 
+  const addEmployee = ( {name,role} ) => {
+    let copy = [...employeeList];
+    copy = [...copy, { id: employeeList.length + 1, name: name, role: role}];
+    setemployeeList(copy);
+  }
+
   return (
     <div className="App">
+//       <AddEmployee addEmployee={addEmployee}/>
+//       <EmployeeList employeeList={employeeList}/>
       <Router>
         <Switch>
           <Route exact path="/" component={LoginPage} />
@@ -34,7 +49,6 @@ function App() {
           <Route path = "/analytics-page" component={AnalyticsPage} />
         </Switch>
       </Router>
-    
     </div>
   );
 }

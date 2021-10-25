@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "Joe Doe",
+        "role": "Software Engineer"
+    },
+    {
+        "id": 2,
+        "name": "Bob Smith",
+        "role": "Marketing"
+    },
+    {
+        "id": 3,
+        "name": "Cora Lucas",
+        "role": "Manager"
+    },
+    {
+        "id": 4,
+        "name": "Thelma Turner",
+        "role": "Sales"
+    },
+    {
+        "id": 5,
+        "name": "Robin Murray",
+        "role": "Human Resources"
+    }
+]
