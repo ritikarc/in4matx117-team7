@@ -28,9 +28,9 @@ function App() {
     console.log("Logout");
   }
 
-  const addEmployee = ( {name,cost} ) => {
+  const addEmployee = ( {name,role} ) => {
     let copy = [...employeeList];
-    copy = [...copy, { id: employeeList.length + 1, name: name, cost: cost}];
+    copy = [...copy, { id: employeeList.length + 1, name: name, role: role}];
     setemployeeList(copy);
   }
 

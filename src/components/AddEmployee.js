@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const AddEmployee = ({ addEmployee }) => {
     const [name, setName] = useState('')
-    const [cost, setCost] = useState('')
+    const [role, setRole] = useState('')
   
     const onSubmit = (e) => {
       e.preventDefault()
@@ -12,18 +12,18 @@ const AddEmployee = ({ addEmployee }) => {
         return
       }
   
-      addEmployee({name, cost})
+      addEmployee({name, role})
   
       setName('')
-      setCost('')
+      setRole('')
     }
 
 
     return (
         <form onSubmit={onSubmit}>
             <input type="text" onChange={(e) => setName(e.target.value)} value={name} placeholder="Enter Employee..."/>
-            <input type="number" onChange={(e) => setCost(e.target.value)} value={cost} placeholder="Enter Cost"/>
-            <button>Submit</button>
+            <input type="text" onChange={(e) => setRole(e.target.value)} value={role} placeholder="Enter Role"/>
+            <button>Add Employee</button>
         </form>
     );
 }

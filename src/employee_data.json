@@ -2,26 +2,26 @@
     {
         "id": 1,
         "name": "Joe Doe",
-        "cost": 52.41
+        "role": "Software Engineer"
     },
     {
         "id": 2,
         "name": "Bob Smith",
-        "cost": 62.70
+        "role": "Marketing"
     },
     {
         "id": 3,
         "name": "Cora Lucas",
-        "cost": 719.18
+        "role": "Manager"
     },
     {
         "id": 4,
         "name": "Thelma Turner",
-        "cost": 7.46
+        "role": "Sales"
     },
     {
         "id": 5,
         "name": "Robin Murray",
-        "cost": 77.04
+        "role": "Human Resources"
     }
 ]
