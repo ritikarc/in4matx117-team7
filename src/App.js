@@ -31,10 +31,11 @@ function App() {
     setemployeeList(copy);
   }
 
+//        <AddEmployee addEmployee={addEmployee}/>
+//       <EmployeeList employeeList={employeeList}/>
   return (
     <div className="App">
-//       <AddEmployee addEmployee={addEmployee}/>
-//       <EmployeeList employeeList={employeeList}/>
+
       <Router>
         <Switch>
           <Route exact path="/" component={LoginPage} />

@@ -8,6 +8,7 @@ import Sidebar from './Sidebar';
 import AdminPage from './AdminPage';
 import AnalyticsPage from './AnalyticsPage';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import EmployeePage from "./EmployeePage";
 
 function Dashboard() {
   const [user, loading, error] = useAuthState(auth);
@@ -40,6 +41,7 @@ function Dashboard() {
         <Switch>
           <Route path = "/admin-page" exact component={AdminPage} />
           <Route path = "/analytics-page" component={AnalyticsPage} />
+          <Route path = "/employee-page" component={EmployeePage} />
         </Switch>
       </Router>
 

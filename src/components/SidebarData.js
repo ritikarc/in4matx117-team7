@@ -12,7 +12,7 @@ export const SidebarData = [
     },
     {
         title: "Employees",
-        path: "/analytics-page",
+        path: "/employee-page",
         icon: <FaIcons.FaUsers/>,
         cName: 'nav-text'
     },
