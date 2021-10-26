@@ -18,7 +18,7 @@ export const SidebarData = [
     },
     {
         title: "Expenses",
-        path: "/analytics-page",
+        path: "/expenses-page",
         icon: <FaIcons.FaFileInvoiceDollar/>,
         cName: "nav-text"
     },
