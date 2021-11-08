@@ -48,7 +48,6 @@ function EmployeePage() {
     function addEmployee(employeeEmail) {
         ref.onSnapshot((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                console.log(doc.data().email);
                 if(doc.data().email == employeeEmail)
                 {
                     firebase.firestore().collection('users').doc(uid).update({employees: firebase.firestore.FieldValue.arrayUnion(doc.id)});
@@ -58,10 +57,8 @@ function EmployeePage() {
     }
 
     function deleteEmployee(employeeEmail) {
-        console.log(employeeEmail);
         ref.onSnapshot((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                console.log(doc.data().email);
                 if(doc.data().email == employeeEmail)
                 {
                     firebase.firestore().collection('users').doc(uid).update({employees: firebase.firestore.FieldValue.arrayRemove(doc.id)});
