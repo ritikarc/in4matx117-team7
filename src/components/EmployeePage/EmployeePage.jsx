@@ -85,6 +85,7 @@ function EmployeePage() {
                 <input
                     type="text"
                     value={addEmail}
+                    style={{borderColor:"black", borderWidth: 1}}
                     onChange={(e) => setAddEmail(e.target.value)}
                 />
                 <button onClick={() => addEmployee(addEmail)}>
