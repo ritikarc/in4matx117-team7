@@ -1,9 +1,12 @@
 import React from 'react';
 
+import Typography from '@mui/material/Typography';
+
 function AnalyticsPage() {
   return (
     <div className='analytics-page'>
-      <h1>Analytics Page</h1>
+      <Typography variant="h2">Analytics</Typography>
+     
     </div>
   );
 }
