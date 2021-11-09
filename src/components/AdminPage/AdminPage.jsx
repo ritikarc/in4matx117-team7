@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "../../providers/UserProvider";
 import { auth } from "../../firebase";
-import "./AdminPage.css";
+// import "./AdminPage.css";
+import "../global.css";
+
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';

@@ -1,5 +1,6 @@
 import React from 'react';
-import "./ExpensesPage.css";
+// import "./ExpensesPage.css";
+import "../global.css";
 
 import List from '@mui/material/List';
 import ListItem from '@material-ui/core/ListItem';
