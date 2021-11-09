@@ -2,6 +2,11 @@ import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "../../providers/UserProvider";
 import { auth } from "../../firebase";
 import firebase from "../../firebase"
+import "../global.css";
+
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import Stack from '@mui/material/Stack';
 
 // import employee_data from "../../employee_data.json"
 // import Employee from "./Employee"
@@ -72,16 +77,13 @@ function EmployeePage() {
     }
  
     return(
-        <div>
-            <h1>Employees</h1>
-            {employees.map((employee) => (
-                <div key={employee.id}>
-                    <h2>{employee.name} - ${employee.cost}  <button onClick={() => deleteEmployee(employee.email)} style={{color:"red"}}>X</button>
-                    </h2>
-                </div>
-            ))}
-                       <div className="inputBox">
-                <h3>Add Employee</h3>
+        <div className='employees-page'>
+            <Typography variant="h2">Employees</Typography>
+
+            <div className="inputBox">
+                <Stack direction="row"> 
+                <Typography variant="h5">Add Employee</Typography>
+                
                 <input
                     type="text"
                     value={addEmail}
@@ -90,7 +92,20 @@ function EmployeePage() {
                 <button onClick={() => addEmployee(addEmail)}>
                     Submit
                 </button>
+                </Stack>
             </div>
+
+            <Divider />
+
+            {employees.map((employee) => (
+                <div key={employee.id}>
+                    <h2>{employee.name}   |   {employee.email}   |   ${employee.cost}  <button onClick={() => deleteEmployee(employee.email)} style={{color:"red"}}>X</button>
+                    </h2>
+                    <h2> </h2>
+                </div>
+            ))}
+            
+            
         </div>
     );
 
