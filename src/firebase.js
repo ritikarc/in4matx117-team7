@@ -1,54 +1,67 @@
 import firebase from "firebase/compat/app"
 import "firebase/compat/auth"
 import "firebase/compat/firestore"
-// other services is needed
+import "firebase/compat/storage"
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyAJclgXr6B8DaygmZ_uyzRUC5cOGS98MAY",
-    authDomain: "phonetax-5f9d2.firebaseapp.com",
-    projectId: "phonetax-5f9d2",
-    storageBucket: "phonetax-5f9d2.appspot.com",
-    messagingSenderId: "519733652300",
-    appId: "1:519733652300:web:3d73d41c4f6e4439447de9",
-    measurementId: "G-F4EKMYK9FD"
-  };
+  apiKey: "AIzaSyD90XcrQcmGZhZ-9kk22Ufcli7aymemoIg",
+  authDomain: "inf-117-phonetaxx-test-2cb97.firebaseapp.com",
+  projectId: "inf-117-phonetaxx-test-2cb97",
+  storageBucket: "inf-117-phonetaxx-test-2cb97.appspot.com",
+  messagingSenderId: "476627747548",
+  appId: "1:476627747548:web:a106b1b2e93cf51c75ea19"
+};
 
-const app = firebase.initializeApp(firebaseConfig);
-const auth = app.auth();
-const db = app.firestore();
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
-const googleProvider = new firebase.auth.GoogleAuthProvider();
+export const firestore = firebase.firestore();
 
-const signInWithGoogle = async () => {
-  try {
-    const res = await auth.signInWithPopup(googleProvider);
-    const user = res.user;
-    const query = await db
-      .collection("users")
-      .where("uid", "==", user.uid)
-      .get();
-    if (query.docs.length === 0) {
-      await db.collection("users").add({
-        uid: user.uid,
-        name: user.displayName,
-        authProvider: "google",
-        email: user.email,
+const db = firebase.firestore();
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
+const storage = firebase.storage();
+
+export { auth, provider, storage };
+export default firebase;
+
+export const signInWithGoogle = () => {
+  auth.signInWithPopup(provider);
+};
+
+export const generateUserDocument = async (user, additionalData) => {
+  if (!user) return;
+
+  const userRef = firestore.doc(`users/${user.uid}`);
+  const snapshot = await userRef.get();
+
+  if (!snapshot.exists) {
+    const { email, displayName, photoURL } = user;
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        photoURL,
+        ...additionalData
       });
+    } catch (error) {
+      console.error("Error creating user document", error);
     }
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
   }
+  return getUserDocument(user.uid);
 };
 
-const logout = () => {
-    auth.signOut();
-};
+const getUserDocument = async uid => {
+  if (!uid) return null;
+  try {
+    const userDocument = await firestore.doc(`users/${uid}`).get();
 
-export {
-    auth,
-    db,
-    signInWithGoogle,
-    logout,
+    return {
+      uid,
+      ...userDocument.data()
+    };
+  } catch (error) {
+    console.error("Error fetching user", error);
+  }
 };

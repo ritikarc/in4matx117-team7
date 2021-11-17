@@ -12,7 +12,7 @@ function Sidebar() {
     return(
         <>
             <div className="sidebar">
-                <Link to='#' classname="menu-bars">
+                <Link to='#' className="menu-bars">
                     <FaIcons.FaBars onClick={showSidebar} />
                 </Link>
             </div>
@@ -24,14 +24,14 @@ function Sidebar() {
                     </Link>
                     </li>
                     {SidebarData.map((item, index) => {
-                    return (
-                        <li key={index} className={item.cName}>
-                        <Link to={item.path}>
-                            {item.icon}
-                            <span>{item.title}</span>
-                        </Link>
-                        </li>
-                    );
+                        return (
+                            <li key={index} className={item.cName}>
+                            <Link to={item.path}>
+                                {item.icon}
+                                <span>{item.title}</span>
+                            </Link>
+                            </li>
+                        );
                     })}
                 </ul>
             </nav>
