@@ -1,9 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "../../providers/UserProvider";
 import { auth } from "../../firebase";
-// import "./AdminPage.css";
-import "../global.css";
-
+import firebase from "../../firebase"
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -13,18 +11,70 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import "./AdminPage.css";
+import '../global.css';
+import Report from "./Report/Report";
 
 const AdminPage = () => {
-  const user = useContext(UserContext);
-  const {name, email} = user;
-  console.log(user);
+    // FIREBASE DATA RETRIEVAL STARTS HERE
+    const user = useContext(UserContext);
+    const {name, email, uid} = user;
+    // console.log(user);
+    // const ref = firebase.firestore().collection("users");
+    // var employeeIds = [];
+    // firebase.firestore().collection('users').doc(uid).get().then((doc)=>{
+    //     employeeIds = doc.data().employees;
+    // });
+
+    const reports = [
+        {
+            title: "Unreported Expenses",
+            count: 101,
+            dollars: 44915,
+            color1: "#bf8037",
+            color2: "#f4993e"
+        },
+        {
+            title: "Reports Submitted",
+            count: 15,
+            dollars: 471335,
+            color1: "#3080c4",
+            color2: "#3097f4"
+        },
+        {
+            title: "Reports Inquiry",
+            count: 3,
+            dollars: 1285,
+            color1: "#6d52a2",
+            color2: "#7f57c2"
+        },
+        {
+            title: "Reports Approved",
+            count: 5,
+            dollars: 3001,
+            color1: "#599964",
+            color2: "#66bb6a"
+        }
+    ]
 
   return (
-    <div className = "admin-page">
-      <h2>Welcome, {name}</h2>
-      <h2>Email: {email}</h2>
-      <button onClick = {() => {auth.signOut()}}>Sign out</button>
-      
+    <div className ="admin-page" id="admin-page">
+        {/* <h2 className="admin-title">Welcome, {name}</h2>
+        <h2>Email: {email}</h2>
+        <button onClick = {() => {auth.signOut()}}>Sign out</button> */}
+        
+        <div id="reports">
+            {
+                reports.map((report, idx) => (
+                    <Report
+                        key = {idx}
+                        {...report}
+                    />
+                ))
+            }
+        </div>
+
+    
       <Typography variant="h2"> Overview </Typography>
       
       <Stack direction="row" spacing={2}> 
