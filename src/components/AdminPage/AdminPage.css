@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     justify-content: flex-start;
+    flex-shrink: 1;
 }
 
 .admin-title {
@@ -13,4 +14,9 @@
 
 #reports {
     display: flex;
+}
+
+#overviews {
+    display: flex;
+    flex-basis: 0;
 }
