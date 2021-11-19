@@ -1,0 +1,30 @@
+.report {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.report > * { flex: 1; }
+
+.report-title {
+    color: rgb(68, 65, 65)
+}
+
+.numbers {
+    color: white;
+    display: flex;
+    font-size: 40px;
+}
+
+.count-box {
+    min-width: 5vh;
+    padding: 20px;
+    text-align: center;
+}
+
+.dollar-box {
+    min-width: 25vh;
+    padding: 20px;
+    padding-left: 14px;
+    text-align: left;
+}
