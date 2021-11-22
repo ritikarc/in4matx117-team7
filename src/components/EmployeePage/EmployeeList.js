@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import { Container } from '@mui/material';
 import { Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import AddIcon from '@mui/icons-material/Add';
  
 const EmployeeList = ({employeeList}) => {
    return (
@@ -17,6 +18,7 @@ const EmployeeList = ({employeeList}) => {
                 </Grid>
                 <Grid item container xs={6} justifyContent="flex-end">
                     <SearchIcon fontSize="xlarge"/>
+                    <AddIcon fontSize="xlarge"/>
                 </Grid>
             </Grid>
             <Grid
