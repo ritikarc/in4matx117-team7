@@ -14,7 +14,6 @@ function EmployeePage() {
  
     return(
         <div style={{"font-size": "50px" ,"background-color": "#d9d9d9", "padding-left": "5%"}}>
-            Employees
             <EmployeeList employeeList={employeeList}/>
         </div>
     );

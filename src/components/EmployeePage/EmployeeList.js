@@ -2,16 +2,21 @@ import React from 'react';
 import Employee from './Employee';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import { Container } from '@mui/material';
+import { Typography } from '@mui/material';
  
 const EmployeeList = ({employeeList}) => {
    return (
-       <Box padding={5}>
+       <Container maxWidth="xl">
+            <Typography fontSize={45} paddingBottom={2}>
+                Employees
+            </Typography>
             <Grid
                 container
                 direction="column"
                 //justifyContent="center"
-                alignItems="stretch"
-                columnSpacing={10}
+                //alignItems="stretch"
+                spacing={3}
             >
                 {employeeList.map(employee => {
                     return (
@@ -19,7 +24,7 @@ const EmployeeList = ({employeeList}) => {
                     )
                 })}
             </Grid>
-       </Box>
+       </Container>
    );
 };
  
