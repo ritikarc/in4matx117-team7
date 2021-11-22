@@ -4,13 +4,21 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { Container } from '@mui/material';
 import { Typography } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
  
 const EmployeeList = ({employeeList}) => {
    return (
        <Container maxWidth="xl">
-            <Typography fontSize={45} paddingBottom={2}>
-                Employees
-            </Typography>
+           <Grid container direction='row' alignItems="center">
+               <Grid item xs={6}>
+                    <Typography fontSize={45} paddingBottom={2}>
+                        Employees
+                    </Typography>
+                </Grid>
+                <Grid item container xs={6} justifyContent="flex-end">
+                    <SearchIcon fontSize="xlarge"/>
+                </Grid>
+            </Grid>
             <Grid
                 container
                 direction="column"
