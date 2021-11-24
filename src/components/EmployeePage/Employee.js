@@ -87,7 +87,7 @@ const Employee = ({ employee }) => {
             </Typography>
             <Button sx={{ mt: 2 }}
                 variant="contained"
-                color="primary">Delete Employee
+                color="error">Delete Employee
             </Button>
             </Box>
         </Modal>
