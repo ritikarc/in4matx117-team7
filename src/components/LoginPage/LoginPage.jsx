@@ -11,7 +11,7 @@ const LoginPage = () => {
             <body className="login-page">
                 
                 <div className="login__container">
-                PhoneTaxx :)
+                
                     <button className="login__btn login__google" onClick={signInWithGoogle}>
                         Login with Google
                     </button>
@@ -20,6 +20,7 @@ const LoginPage = () => {
                 
             </body>
         </div>
+        
     );
 }
 

@@ -1,9 +1,22 @@
 .login-page {
-  background-color: mediumorchid;
+  background-image: url("../../loginImage.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  display: block;
+  
 }
 
+img {
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 body {
-  background-color: rgb(39, 212, 189);
+  text-align: center;
 }
 
 h1 {
@@ -22,12 +35,12 @@ h1 {
   position: fixed;
   top: 45%;
   bottom: 45%;
-  left: 41%;
+  left: 43%;
   right: 40%px;
   display: flex;
   flex-direction: column;
   text-align: center;
-  background-color: rgb(39, 212, 189);
+  
   padding: 8px;
   justify-content: center;
   font-size: 50px;
@@ -50,13 +63,13 @@ h1 {
   margin-bottom: 10px;
   border: none;
   color: white;
-  background-color: black;
+  background-color: rgb(51, 151, 177);
 }
 
 .login__google {
   justify-content: center;
   align-items: center;
-  background-color: #e095e7;
+  
 }
 
 .login div {
