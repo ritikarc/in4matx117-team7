@@ -8,13 +8,100 @@ import Employee from "./Employee"
 import EmployeeList from "./EmployeeList"
 
 import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import { Container } from '@mui/material';
+import { Typography } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import AddIcon from '@mui/icons-material/Add';
+import Modal from '@mui/material/Modal';
+import { TextField } from "@mui/material";
+import { Splitscreen } from "@mui/icons-material";
+
+const addEmployeeModal = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
 
 function EmployeePage() {
-    const [employeeList, setEmployeeList] = useState(employee_data)
+    const [allEmployees, setAllEmployees] = useState(employee_data);
+    const [employeeList, setEmployeeList] = useState([]);
+    const [addEmail, setAddEmail] = useState("");
+    const addEmployee = (email) => {
+        allEmployees.some(employee => {
+            if(employee.email == email){
+                setEmployeeList(employeeList.concat([employee]));
+                setAddEmail("");
+                return true;
+            }
+            return false;
+        })
+    }
+
+    const removeEmployee = (email) => {
+        let newEmployeeList = employeeList.slice();
+        for(let i = 0; i < newEmployeeList.length; i++){
+            if(newEmployeeList[i].email == email){
+                newEmployeeList.splice(i,1);
+                setEmployeeList(newEmployeeList);
+                break;
+            }
+        }
+    }
+
+
+    const [openAddEmployee, setOpenAddEmployee] = React.useState(false);
+    const handleOpenAddEmployee = () => setOpenAddEmployee(true);
+    const handleCloseAddEmployee = () => setOpenAddEmployee(false);
+
  
     return(
         <div style={{"font-size": "50px" ,"background-color": "#d9d9d9", "padding-left": "5%"}}>
-            <EmployeeList employeeList={employeeList}/>
+
+            <Container>
+                <Grid container direction='row' alignItems="center">
+                    <Grid item xs={6}>
+                        <Typography fontSize={45} paddingBottom={2}>
+                            Employees
+                        </Typography>
+                    </Grid>
+                    <Grid item container xs={6} justifyContent="flex-end">
+                        <SearchIcon fontSize="xlarge"/>
+                        <AddIcon onClick={handleOpenAddEmployee} fontSize="xlarge"/>
+                    </Grid>
+                </Grid>
+                <EmployeeList employeeList={employeeList} removeEmployee={removeEmployee}/>
+            </Container>
+
+            {/* Add employee modal */}
+            <Modal
+                    open={openAddEmployee}
+                    onClose={handleCloseAddEmployee}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                >
+                <Box sx={addEmployeeModal}> 
+                    <TextField label="Enter Employee Email"
+                                variant="standard"
+                                value={addEmail} 
+                                onChange = {(e) => setAddEmail(e.target.value)}
+                    />
+                    <Button sx={{ mt: 1.5, ml:3}}
+                        variant="contained"
+                        color="primary"
+                        onClick={() => addEmployee(addEmail)}
+                    >
+                        Add Employee
+                    </Button>
+                </Box>
+            </Modal>
         </div>
     );
 

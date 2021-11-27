@@ -7,20 +7,8 @@ import { Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/Add';
  
-const EmployeeList = ({employeeList}) => {
+const EmployeeList = ({employeeList,removeEmployee}) => {
    return (
-       <Container maxWidth="xl">
-           <Grid container direction='row' alignItems="center">
-               <Grid item xs={6}>
-                    <Typography fontSize={45} paddingBottom={2}>
-                        Employees
-                    </Typography>
-                </Grid>
-                <Grid item container xs={6} justifyContent="flex-end">
-                    <SearchIcon fontSize="xlarge"/>
-                    <AddIcon fontSize="xlarge"/>
-                </Grid>
-            </Grid>
             <Grid
                 container
                 direction="column"
@@ -30,11 +18,10 @@ const EmployeeList = ({employeeList}) => {
             >
                 {employeeList.map(employee => {
                     return (
-                        <Employee employee={employee} />
+                        <Employee employee={employee} removeEmployee={removeEmployee} />
                     )
                 })}
             </Grid>
-       </Container>
    );
 };
  

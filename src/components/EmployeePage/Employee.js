@@ -23,20 +23,19 @@ const employeeModal = {
   };
 
 
-const Employee = ({ employee }) => {
+const Employee = ({ employee, removeEmployee }) => {
 
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const [openEmployee, setOpenEmployee] = React.useState(false);
+    const handleOpenEmployee = () => setOpenEmployee(true);
+    const handleCloseEmployee = () => setOpenEmployee(false);
 
     return (
         <Grid item>
             <Box 
-            maxWidth="lg"
             backgroundColor="white"
             border={1}
             borderRadius={1}
-            onClick={handleOpen}>
+            onClick={handleOpenEmployee}>
                 <Grid container direction="row" alignItems="center">
                     <Grid item container xs={1} justifyContent="center">
                         <Avatar alt={employee.name} src="joe.jpg"/>
@@ -69,28 +68,32 @@ const Employee = ({ employee }) => {
                     </Grid>
                 </Grid>
             </Box>
+
+            {/* Employee info Modal */}
             <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-            <Box sx={employeeModal}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-                {employee.name}
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 1,   color:"gray"}}>
-                {employee.role}
-            </Typography>
-            <Typography sx={{ mt: 1}}>
-                ${employee.cost}
-            </Typography>
-            <Button sx={{ mt: 2 }}
-                variant="contained"
-                color="error">Delete Employee
-            </Button>
-            </Box>
-        </Modal>
+                    open={openEmployee}
+                    onClose={handleCloseEmployee}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                >
+                <Box sx={employeeModal}>
+                <Typography id="modal-modal-title" variant="h6" component="h2">
+                    {employee.name}
+                </Typography>
+                <Typography id="modal-modal-description" sx={{ mt: 1,   color:"gray"}}>
+                    {employee.role}
+                </Typography>
+                <Typography sx={{ mt: 1}}>
+                    {employee.email}
+                </Typography>
+                <Button sx={{ mt: 2 }}
+                    variant="contained"
+                    color="error"
+                    onClick={() => removeEmployee(employee.email)}>
+                    Delete Employee
+                </Button>
+                </Box>
+            </Modal>
         </Grid>
     );
 };
