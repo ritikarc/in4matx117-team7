@@ -6,6 +6,7 @@ import firebase from "../../firebase"
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
+import Divider from '@mui/material/Divider';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -70,6 +71,21 @@ const pendings = [
     }
 ]
 
+const charge_data = [
+    {
+        title: "Charges last month",
+        cost: 1300
+    },
+    {
+        title: "Amount Difference",
+        cost: 100
+    },
+    {
+        title: "% Change",
+        cost: 7.69
+    }
+]
+
 const AdminPage = () => {
     // FIREBASE DATA RETRIEVAL STARTS HERE
     const user = useContext(UserContext);
@@ -100,6 +116,55 @@ const AdminPage = () => {
     
         <Typography variant="h2"> Overview </Typography>
 
+        <Stack direction="row" padding="2%">
+            <Stack direction="column" padding="1%"> 
+                {/* <Typography variant="h5" align="center"> Charges </Typography> */}
+                <Box sx={{
+                    width: 300,
+                    height: 300,
+                    backgroundColor: "#FCA795"}}>
+                    <Typography variant="h6" align="center"> Total Charges</Typography>
+                    <Typography variant="h5" align="center"> $1400 </Typography>
+                    <Divider/>
+                    <Typography variant="h8" align="center">Previous Month</Typography>
+                    {/* <table id="sample">
+                        <tbody>
+                            {charge_data}
+                        </tbody>
+                    </table> */}
+                    <Divider/>
+                    <Typography variant="h8" align="center">Top Spenders</Typography>
+                    
+                </Box>
+            </Stack>
+            <Stack direction="column" padding="1%"> 
+                {/* <Typography variant="h5" align="center"> Minutes </Typography> */}
+                <Box sx={{
+                    width: 300,
+                    height: 300,
+                    backgroundColor: "#B4FC95"}}>
+
+                    <Typography variant="h6" align="center"> Total Minutes</Typography>
+                    <Typography variant="h5" align="center"> 2300 </Typography>
+                    <Divider/>
+                    <Typography variant="h8" align="center">Previous Month</Typography>
+                    {/* <table id="sample">
+                        <tbody>
+                            {charge_data}
+                        </tbody>
+                    </table> */}
+                    <Divider/>
+                    <Typography variant="h8" align="center">Top Minutes</Typography>
+                    <Divider/>
+                    <Typography variant="h8" align="center">Least Minutes</Typography>
+                    
+
+                </Box>
+            </Stack>
+        </Stack>
+        
+        <Divider light="true"/>
+
         <div id="overviews">
             <TotalEmployee {...totalEmployees}/>
             {pendings.map((pending, idx) => (
@@ -109,133 +174,6 @@ const AdminPage = () => {
                 />
             ))}
         </div>
-        
-        {/* <Stack direction="row" spacing={2}> 
-            <Box sx={{
-            width: 250,
-            height: 150,
-            backgroundColor: 'whitesmoke',
-            '&:hover': {
-                backgroundColor: '#a1c5ff',
-                opacity: [0.9, 0.8, 0.7],
-            },
-            }}>
-            
-            <Typography variant="h5">
-                Total Employees
-            </Typography>
-            <Typography variant="h3">
-                25
-            </Typography>
-            <Typography variant="h8">
-                19 employees are verified
-            </Typography>
-            </Box>
-
-            <Box sx={{
-            width: 250,
-            height: 150,
-            backgroundColor: 'whitesmoke',
-            '&:hover': {
-                backgroundColor: '#a1c5ff',
-                opacity: [0.9, 0.8, 0.7],
-            },
-            }}>
-            
-            <Typography variant="h5">
-                Pending Review
-            </Typography>
-            <Typography variant="h3">
-                $3,001
-            </Typography>
-            <Typography variant="h8">
-                5 reports in the queue
-            </Typography>
-            </Box>
-
-            <Box sx={{
-            width: 250,
-            height: 150,
-            backgroundColor: 'whitesmoke',
-            '&:hover': {
-                backgroundColor: '#a1c5ff',
-                opacity: [0.9, 0.8, 0.7],
-            },
-            }}>
-            
-            <Typography variant="h5">
-                Pending Payment
-            </Typography>
-            <Typography variant="h3">
-                $1,142
-            </Typography>
-            <Typography variant="h8">
-                3 reports in queue
-            </Typography>
-            </Box>
-        </Stack>
-
-        <Typography variant="h2"> Reminders </Typography>
-
-        <Stack direction="row" spacing={2}> 
-            <Box sx={{
-            width: 200,
-            height: 100,
-            backgroundColor: 'whitesmoke'
-            }}>
-            
-            <Typography variant="h6">
-                Unverified Employees
-            </Typography>
-            <button backgroundColor="#c5d4c9">
-                Remind
-            </button>
-            </Box>
-
-            <Box sx={{
-            width: 200,
-            height: 100,
-            backgroundColor: 'whitesmoke'
-            }}>
-            
-            <Typography variant="h6">
-                Pay Period
-            </Typography>
-            <button backgroundColor="#c5d4c9">
-                Remind
-            </button>
-            </Box>
-
-            <Box sx={{
-            width: 200,
-            height: 100,
-            backgroundColor: 'whitesmoke'
-            }}>
-            
-            <Typography variant="h6">
-                Employees unreported Expenses
-            </Typography>
-            <button backgroundColor="#c5d4c9">
-                Remind
-            </button>
-            </Box>
-
-            <Box sx={{
-            width: 200,
-            height: 100,
-            backgroundColor: 'whitesmoke'
-            }}>
-            
-            <Typography variant="h6">
-                Approvers Pending Expenses
-            </Typography>
-            <button backgroundColor="#c5d4c9">
-                Remind
-            </button>
-            </Box>
-
-        </Stack> */}
-
     </div>
   )
 };

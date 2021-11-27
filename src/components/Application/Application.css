@@ -8,3 +8,16 @@ html, body {
     height: 100vh !important;
     min-height: 100vh;
 }
+
+#app-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#main-container {
+    flex-direction: column;
+}
+
+#topbar {
+    height: 50px;
+}

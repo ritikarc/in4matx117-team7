@@ -1,0 +1,11 @@
+#topbar {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.signout-btn {
+}
