@@ -7,6 +7,10 @@ Members:
   Seong Su Park,
   Justin Zhang
   
+Cited Code / Resources:
+https://blog.logrocket.com/user-authentication-firebase-react-apps/
+https://github.com/GoZaddy/Firebase-auth-article
+  
 Steps to get started: 
 - Download VSCode, node js, npm, git
 - Clone the project using git clone https://github.com/ritikarc/in4matx117-team7.git
