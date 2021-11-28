@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "../../providers/UserProvider";
 import { auth } from "../../firebase";
 import firebase from "../../firebase"
+import {collection, getDocs, onSnapshot, query, where, doc, updateDoc, getDoc} from "firebase/firestore"
 
 import employee_data from "../../employee_data.json"
 import Employee from "./Employee"
@@ -31,36 +32,62 @@ const addEmployeeModal = {
   };
 
 function EmployeePage() {
-    const [allEmployees, setAllEmployees] = useState(employee_data);
     const [employeeList, setEmployeeList] = useState([]);
     const [addEmail, setAddEmail] = useState("");
-    const addEmployee = (email) => {
-        allEmployees.some(employee => {
-            if(employee.email == email){
-                setEmployeeList(employeeList.concat([employee]));
-                setAddEmail("");
-                return true;
-            }
-            return false;
-        })
-    }
 
-    const removeEmployee = (email) => {
-        let newEmployeeList = employeeList.slice();
-        for(let i = 0; i < newEmployeeList.length; i++){
-            if(newEmployeeList[i].email == email){
-                newEmployeeList.splice(i,1);
-                setEmployeeList(newEmployeeList);
-                break;
+    //const [users, setUsers] = useState([]);
+    const [currentUserEmail, setCurrentUserEmail] = useState(useContext(UserContext).email);
+    const [currentUserID, setCurrentUserID] = useState();
+    const db = firebase.firestore();
+    useEffect(()=> {
+        onSnapshot(collection(db, "users"), (snapshot) => {
+            const users = snapshot.docs.map((doc) => ({...doc.data(), id: doc.id}))
+            const index = users.findIndex(user => user.email == currentUserEmail);
+            setCurrentUserID(users[index].id);
+            const employeeIds = users[index].employees;
+            let employees = [];
+            users.forEach((user) => {
+                if(employeeIds.includes(user.id))
+                {
+                    employees.push(user);
+                }
+            });
+            setEmployeeList(employees);
+        });
+    }, []);
+
+    const addEmployee = async (email) => {
+        const collectionRef = collection(db,"users");
+        const q = query(collectionRef, where("email", "==", email))
+        const snapshot = await getDocs(q);
+        if(snapshot.docs.length > 0)
+        {
+            const employeeId = snapshot.docs[0].id;    
+            const docRef = doc(db, "users", currentUserID);
+            const userDoc = await getDoc(docRef);
+            const employees = userDoc.data().employees;
+            if(!employees.includes(employeeId))
+            {
+                employees.push(employeeId);
+                await updateDoc(docRef, {employees: employees});
+                setAddEmail("");
             }
         }
+    }
+
+    const removeEmployee = async (id) => {
+        const docRef = doc(db, "users", currentUserID);
+        const userDoc = await getDoc(docRef);
+        const employees = userDoc.data().employees;
+        const index = employees.indexOf(id);
+        employees.splice(index,1);
+        await updateDoc(docRef, {employees: employees});
     }
 
 
     const [openAddEmployee, setOpenAddEmployee] = React.useState(false);
     const handleOpenAddEmployee = () => setOpenAddEmployee(true);
     const handleCloseAddEmployee = () => setOpenAddEmployee(false);
-
  
     return(
         <div style={{"font-size": "50px" ,"background-color": "#d9d9d9", "padding-left": "5%"}}>

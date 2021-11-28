@@ -18,7 +18,7 @@ const EmployeeList = ({employeeList,removeEmployee}) => {
             >
                 {employeeList.map(employee => {
                     return (
-                        <Employee employee={employee} removeEmployee={removeEmployee} />
+                        <Employee key={employee.id} employee={employee} removeEmployee={removeEmployee} />
                     )
                 })}
             </Grid>

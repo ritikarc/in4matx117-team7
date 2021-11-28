@@ -89,7 +89,7 @@ const Employee = ({ employee, removeEmployee }) => {
                 <Button sx={{ mt: 2 }}
                     variant="contained"
                     color="error"
-                    onClick={() => removeEmployee(employee.email)}>
+                    onClick={() => removeEmployee(employee.id)}>
                     Delete Employee
                 </Button>
                 </Box>
