@@ -34,6 +34,7 @@ const addEmployeeModal = {
 function EmployeePage() {
     const [employeeList, setEmployeeList] = useState([]);
     const [addEmail, setAddEmail] = useState("");
+    const secondCost = 0.01;
 
     //const [users, setUsers] = useState([]);
     const [currentUserEmail, setCurrentUserEmail] = useState(useContext(UserContext).email);
@@ -41,7 +42,7 @@ function EmployeePage() {
     const db = firebase.firestore();
     useEffect(()=> {
         onSnapshot(collection(db, "users"), (snapshot) => {
-            const users = snapshot.docs.map((doc) => ({...doc.data(), id: doc.id}))
+            const users = snapshot.docs.map((doc) => ({...doc.data(), callCost: (doc.data().call_seconds * secondCost).toFixed(2), id: doc.id}))
             const index = users.findIndex(user => user.email == currentUserEmail);
             setCurrentUserID(users[index].id);
             const employeeIds = users[index].employees;

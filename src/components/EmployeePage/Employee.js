@@ -66,7 +66,7 @@ const Employee = ({ employee, removeEmployee }) => {
 
                     <Grid item container xs={3} justifyContent="center"> 
                         <Typography fontSize={30} >
-                            ${employee.cost}
+                            ${employee.callCost}
                         </Typography>
                     </Grid>
                 </Grid>
@@ -90,7 +90,7 @@ const Employee = ({ employee, removeEmployee }) => {
                         {employee.email}
                     </Typography>
                     <Typography sx={{ mt: 1}}>
-                        ${employee.cost}
+                        ${employee.callCost}
                     </Typography>
                     <Button sx={{ mt: 2, mr: 2}}
                         variant="contained"
