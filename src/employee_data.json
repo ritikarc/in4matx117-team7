@@ -2,30 +2,35 @@
     {
         "id": 1,
         "name": "Joe Doe",
+        "email": "joe@gmail.com",
         "role": "Software Engineer",
         "cost": "3.24"
     },
     {
         "id": 2,
         "name": "Bob Smith",
+        "email": "bob@gmail.com",
         "role": "Marketing",
         "cost": "53.24"
     },
     {
         "id": 3,
         "name": "Cora Lucas",
+        "email": "cora@gmail.com",
         "role": "Manager",
         "cost": "0.23"
     },
     {
         "id": 4,
         "name": "Thelma Turner",
+        "email": "thelma@gmail.com",
         "role": "Sales",
         "cost": "142.95"
     },
     {
         "id": 5,
         "name": "Robin Murray",
+        "email": "robin@gmail.com",
         "role": "Human Resources",
         "cost": "27.03"
     }
