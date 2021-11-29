@@ -94,7 +94,7 @@ function EmployeePage() {
 
             <Container>
                 <Grid container direction='row' alignItems="center">
-                    <Grid item xs={6}>
+                    <Grid item container xs={6}>
                         <Typography fontSize={45} paddingBottom={2}>
                             Employees
                         </Typography>
