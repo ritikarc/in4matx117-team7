@@ -9,6 +9,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
+import { Stack } from '@mui/material';
 
 const employeeModal = {
     position: 'absolute',
@@ -41,13 +42,15 @@ const Employee = ({ employee, removeEmployee }) => {
                         <Avatar alt={employee.name} src="joe.jpg"/>
                     </Grid>
 
-                    <Grid item xs={8} paddingTop={2} paddingBottom={2}>
-                        <Typography fontSize={35}>
-                            {employee.name}
-                        </Typography>
-                        <Typography fontSize={15} color="gray">
-                            {employee.role}
-                        </Typography>
+                    <Grid item xs={8} paddingTop={2} paddingBottom={2} align="left">
+                        <Stack>
+                            <Typography fontSize={35}>
+                                {employee.name}
+                            </Typography>
+                            <Typography fontSize={15} color="gray">
+                                {employee.role}
+                            </Typography>
+                        </Stack>
                     </Grid>
                     
                     {/* <Grid item xs={3}>
@@ -63,7 +66,7 @@ const Employee = ({ employee, removeEmployee }) => {
 
                     <Grid item container xs={3} justifyContent="center"> 
                         <Typography fontSize={30} >
-                            ${employee.cost}
+                            ${employee.callCost}
                         </Typography>
                     </Grid>
                 </Grid>
@@ -77,21 +80,29 @@ const Employee = ({ employee, removeEmployee }) => {
                     aria-describedby="modal-modal-description"
                 >
                 <Box sx={employeeModal}>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
-                    {employee.name}
-                </Typography>
-                <Typography id="modal-modal-description" sx={{ mt: 1,   color:"gray"}}>
-                    {employee.role}
-                </Typography>
-                <Typography sx={{ mt: 1}}>
-                    {employee.email}
-                </Typography>
-                <Button sx={{ mt: 2 }}
-                    variant="contained"
-                    color="error"
-                    onClick={() => removeEmployee(employee.id)}>
-                    Delete Employee
-                </Button>
+                    <Typography id="modal-modal-title" variant="h4" color="black">
+                        {employee.name}
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 1,   color:"gray"}}>
+                        {employee.role}
+                    </Typography>
+                    <Typography sx={{ mt: 1}}>
+                        {employee.email}
+                    </Typography>
+                    <Typography sx={{ mt: 1}}>
+                        ${employee.callCost}
+                    </Typography>
+                    <Button sx={{ mt: 2, mr: 2}}
+                        variant="contained"
+                        color="primary">
+                        Generate Report
+                    </Button>
+                    <Button sx={{ mt: 2 }}
+                        variant="contained"
+                        color="error"
+                        onClick={() => removeEmployee(employee.id)}>
+                        Delete Employee
+                    </Button>
                 </Box>
             </Modal>
         </Grid>
