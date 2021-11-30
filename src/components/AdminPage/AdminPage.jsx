@@ -4,7 +4,7 @@ import { auth } from "../../firebase";
 import firebase from "../../firebase"
 //import MUIDataTable from "mui-datatables";
 //import Document from "./Document.js"
-import { PDFDownloadLink, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import { PDFDownloadLink, Page, Text, View, Document, StyleSheet, Image } from '@react-pdf/renderer';
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -25,6 +25,7 @@ import Button from '@mui/material/Button';
 
 import ChargesChart from "./charges-chart.PNG";
 import MinutesChart from "./minutes-chart.PNG";
+import { Opacity } from "@mui/icons-material";
 
 const chargesModal = {
     position: 'absolute',
@@ -121,6 +122,17 @@ const styles = StyleSheet.create({
         margin: 10,
         padding: 10,
         fontSize:30
+    },
+    bodytext: {
+        margin: 10,
+        padding: 10,
+        fontSize:20
+    },
+    watermark: {
+        fontSize: 12,
+        margin:20,
+        padding: 20,
+        opacity: 0.3
     }
   });
   
@@ -129,18 +141,22 @@ const styles = StyleSheet.create({
       <Page size="A4" style={styles.page}>
         <View style={styles.heading}>
           <Text>Expense Report: November</Text>
+          <Text style={styles.bodytext}>Lorem ipsum dolor sit amet, 
+                 consectetur adipiscing elit, 
+                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                 Ut enim ad minim veniam, 
+                 quis nostrud exercitation ullamco laboris 
+                 nisi ut aliquip ex ea commodo consequat. 
+                 Duis aute irure dolor in reprehenderit in 
+                 voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                 Excepteur sint occaecat cupidatat non proident, 
+                 sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </Text>
+            <Image src={ChargesChart} />
+            <Image src={MinutesChart} />
         </View>
-        <View style={styles.section}>
-          <Text>Lorem ipsum dolor sit amet, 
-//                 consectetur adipiscing elit, 
-//                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-//                 Ut enim ad minim veniam, 
-//                 quis nostrud exercitation ullamco laboris 
-//                 nisi ut aliquip ex ea commodo consequat. 
-//                 Duis aute irure dolor in reprehenderit in 
-//                 voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-//                 Excepteur sint occaecat cupidatat non proident, 
-//                 sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>
+        <View style={styles.watermark}>
+          <Text>PHONETAXX</Text>
         </View>
       </Page>
     </Document>
