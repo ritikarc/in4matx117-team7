@@ -38,23 +38,30 @@ function EmployeePage() {
 
     //const [users, setUsers] = useState([]);
     const [currentUserEmail, setCurrentUserEmail] = useState(useContext(UserContext).email);
-    const [currentUserID, setCurrentUserID] = useState();
+    const [currentUserID, setCurrentUserID] = useState(useContext(UserContext).uid);
     const db = firebase.firestore();
+
     useEffect(()=> {
         onSnapshot(collection(db, "users"), (snapshot) => {
-            const users = snapshot.docs.map((doc) => ({...doc.data(), callCost: (doc.data().call_seconds * secondCost).toFixed(2), id: doc.id}))
-            const index = users.findIndex(user => user.email == currentUserEmail);
-            setCurrentUserID(users[index].id);
-            const employeeIds = users[index].employees;
-            let employees = [];
-            users.forEach((user) => {
-                if(employeeIds.includes(user.id))
-                {
-                    employees.push(user);
-                }
-            });
-            setEmployeeList(employees);
+            getEmployees();
         });
+
+        const getEmployees = async() => {
+            const docRef = doc(db, "users", currentUserID);
+            const userDoc = await getDoc(docRef);
+            const employeeIds = userDoc.data().employees;
+            let employees = [];
+
+            for(const employeeId of employeeIds){
+                const docRef = doc(db, "users", employeeId);
+                const employeeDoc = await getDoc(docRef);
+                const employee = ({...employeeDoc.data(),
+                                    callCost: (employeeDoc.data().call_seconds * secondCost).toFixed(2),
+                                    id: employeeDoc.id});
+                employees.push(employee);
+            };
+            setEmployeeList(employees);
+        }
     }, []);
 
     const addEmployee = async (email) => {
