@@ -91,7 +91,7 @@ function EmployeePage() {
     const handleCloseAddEmployee = () => setOpenAddEmployee(false);
  
     return(
-        <div style={{"font-size": "50px" ,"background-color": "#d9d9d9", "padding-left": "5%"}}>
+        <div style={{"font-size": "50px" ,"background-color": "#fbfbfb", "padding-left": "5%"}}>
 
             <Container>
                 <Grid container direction='row' alignItems="center">

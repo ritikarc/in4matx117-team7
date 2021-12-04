@@ -13,7 +13,7 @@ import Divider from '@mui/material/Divider';
 function ExpensesPage() {
   return (
     <div className='expenses-page'>
-      <Typography variant="h2">Expenses</Typography>
+      <Typography variant="h2" color="black">Expenses</Typography>
 
       <Stack direction="row" spacing={3}>
         <button>CREATE</button>

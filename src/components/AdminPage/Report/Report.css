@@ -11,7 +11,7 @@
 }
 
 .numbers {
-    color: white;
+    color: rgb(255, 255, 255);
     display: flex;
     font-size: 40px;
 }
