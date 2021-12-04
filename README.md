@@ -15,9 +15,12 @@ Steps to get started:
 - Download VSCode, node js, npm, git
 - Clone the project using git clone https://github.com/ritikarc/in4matx117-team7.git
 - cd into the project on the command line/terminal/vs code
+- npm install
 - npm start
 - open http://localhost:3000/ on a browser to see changes
 - GIT CHEATSHEET: https://about.gitlab.com/images/press/git-cheat-sheet.pdf
+- NOTE: You WILL need the keys from the firebase database in order to use this code. We recommend using a sample database first so you don't accidentally delete/override things when authenticating, etc. Additionally, we recommened setting your database permission to read-only.
+- Feel free to contact us for any questions.
 
 ------------------------------------------------------------------------------------------
 # REACT INFO FROM FB DEVS from this point on
