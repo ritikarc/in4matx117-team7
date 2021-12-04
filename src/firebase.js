@@ -1,17 +1,12 @@
-import firebase from "firebase/compat/app"
-import "firebase/compat/auth"
-import "firebase/compat/firestore"
-import "firebase/compat/storage"
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import 'firebase/compat/storage';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyD90XcrQcmGZhZ-9kk22Ufcli7aymemoIg",
-  authDomain: "inf-117-phonetaxx-test-2cb97.firebaseapp.com",
-  projectId: "inf-117-phonetaxx-test-2cb97",
-  storageBucket: "inf-117-phonetaxx-test-2cb97.appspot.com",
-  messagingSenderId: "476627747548",
-  appId: "1:476627747548:web:a106b1b2e93cf51c75ea19"
-};
+
+// INSERT YOIUR FIREBASE CONFIG HERE
+const firebaseConfig = {};
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -43,25 +38,25 @@ export const generateUserDocument = async (user, additionalData) => {
         displayName,
         email,
         photoURL,
-        ...additionalData
+        ...additionalData,
       });
     } catch (error) {
-      console.error("Error creating user document", error);
+      console.error('Error creating user document', error);
     }
   }
   return getUserDocument(user.uid);
 };
 
-const getUserDocument = async uid => {
+const getUserDocument = async (uid) => {
   if (!uid) return null;
   try {
     const userDocument = await firestore.doc(`users/${uid}`).get();
 
     return {
       uid,
-      ...userDocument.data()
+      ...userDocument.data(),
     };
   } catch (error) {
-    console.error("Error fetching user", error);
+    console.error('Error fetching user', error);
   }
 };
