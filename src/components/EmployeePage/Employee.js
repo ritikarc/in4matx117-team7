@@ -52,17 +52,6 @@ const Employee = ({ employee, removeEmployee }) => {
                             </Typography>
                         </Stack>
                     </Grid>
-                    
-                    {/* <Grid item xs={3}>
-                    <Button
-                            variant="contained"
-                            size="medium"
-                            color="primary">
-                                Employee Details
-                        </Button>
-                    </Grid> */}
-
-                    {/* <Grid item container xs={1}></Grid> */}
 
                     <Grid item container xs={3} justifyContent="center"> 
                         <Typography fontSize={30} >
@@ -110,37 +99,3 @@ const Employee = ({ employee, removeEmployee }) => {
 };
 
 export default Employee;
-
-{/* <Grid item xs={10}>
-    <Card maxWidth={345}>
-        <CardHeader
-            title={employee.name}
-            subheader={employee.role} />
-        <CardContent>
-            <Button
-                variant="contained"
-                color="primary">View Profile
-            </Button>
-            <Typography component="div" variant="h5">
-                ${employee.cost}
-            </Typography>
-        </CardContent>
-    </Card>
-</Grid> */}
-
-
-{/* <Box
-    component="span"
-    m={1} //margin
-    border="1px solid black"
-    justifyContent="flex-end"
-    alignItems="flex-end"
-> {employee.name} | {employee.role}
-    <Button
-        variant="contained"
-        color="primary"
-        style={{ height: 30 }}
-    >
-        Employee Profile
-    </Button>
-</Box> */}
