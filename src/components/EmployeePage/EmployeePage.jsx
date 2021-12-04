@@ -36,10 +36,13 @@ function EmployeePage() {
     const [addEmail, setAddEmail] = useState("");
     const secondCost = 0.01;
 
-    //const [users, setUsers] = useState([]);
     const [currentUserEmail, setCurrentUserEmail] = useState(useContext(UserContext).email);
     const [currentUserID, setCurrentUserID] = useState(useContext(UserContext).uid);
     const db = firebase.firestore();
+
+    const [openAddEmployee, setOpenAddEmployee] = useState(false);
+    const handleOpenAddEmployee = () => setOpenAddEmployee(true);
+    const handleCloseAddEmployee = () => setOpenAddEmployee(false);
 
     useEffect(()=> {
         onSnapshot(collection(db, "users"), (snapshot) => {
@@ -91,11 +94,6 @@ function EmployeePage() {
         employees.splice(index,1);
         await updateDoc(docRef, {employees: employees});
     }
-
-
-    const [openAddEmployee, setOpenAddEmployee] = React.useState(false);
-    const handleOpenAddEmployee = () => setOpenAddEmployee(true);
-    const handleCloseAddEmployee = () => setOpenAddEmployee(false);
  
     return(
         <div style={{"font-size": "50px" ,"background-color": "#fbfbfb", "padding-left": "5%"}}>
@@ -139,26 +137,6 @@ function EmployeePage() {
             </Modal>
         </div>
     );
-
-    // const user = useContext(UserContext);
-    // const {name, email} = user;
-    // console.log(user);
-
-    // // const [ employeeList, setemployeeList ] = useState(employee_data);
-
-    // // const addEmployee = ( {name,role} ) => {
-    // //     let copy = [...employeeList];
-    // //     copy = [...copy, { id: employeeList.length + 1, name: name, role: role}];
-    // //     setemployeeList(copy);
-    // // }
-
-    // return (
-    //     <div className='employee-page'>
-    //         <h1>Employee Page</h1>
-    //         {/* <AddEmployee addEmployee={addEmployee}/>
-    //         <EmployeeList employeeList={employeeList}/> */}
-    //     </div>
-    // );
 }
 
 export default EmployeePage;
